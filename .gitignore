@@ -4,6 +4,7 @@ bin/
 # Ignore Eclipse
 .cproject
 .project
+.settings/
 
 # Prerequisites
 *.d
