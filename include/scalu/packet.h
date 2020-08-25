@@ -1,5 +1,10 @@
+#ifndef SCALU_PACKET_H
+#define SCALU_PACKET_H
+
+/*
 MIT License
 
+scalu/packet.h
 Copyright (c) 2020 Nick Trebes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,3 +24,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+#include <scalu.h>
+
+#define SCALU_TYPE_PACKET "scalu.packet.Packet"
+
+SCALU_API int SCALU_MOD(packet)(lua_State *L);
+
+#endif /* ! SCALU_PACKET_H */

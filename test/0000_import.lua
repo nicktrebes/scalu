@@ -1,5 +1,7 @@
+--[[
 MIT License
 
+0000_import.lua
 Copyright (c) 2020 Nick Trebes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,3 +21,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+]]--
+
+package.cpath = package.cpath .. ";./bin/?.so"
+scalu = require("libscalu")

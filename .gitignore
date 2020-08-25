@@ -1,3 +1,10 @@
+# Ignore bin/
+bin/
+
+# Ignore Eclipse
+.cproject
+.project
+
 # Prerequisites
 *.d
 
