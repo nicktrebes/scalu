@@ -28,8 +28,11 @@ SOFTWARE.
 
 #include <scalu.h>
 
+#define SCALU_TYPE_NOPAYLOAD "scalu.packet.NoPayload"
 #define SCALU_TYPE_PACKET "scalu.packet.Packet"
 
+SCALU_API void SCALU_META(packet,NoPayload)(lua_State *L);
+SCALU_API void SCALU_META(packet,Packet)(lua_State *L);
 SCALU_API int SCALU_MOD(packet)(lua_State *L);
 
 #endif /* ! SCALU_PACKET_H */

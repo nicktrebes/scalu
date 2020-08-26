@@ -1,7 +1,7 @@
-/*
+--[[
 MIT License
 
-scalu.c
+0003_Buffer_get8.lua
 Copyright (c) 2020 Nick Trebes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,23 +21,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/
+]]--
 
-#include <scalu/buffer.h>
-#include <scalu/packet.h>
+package.cpath = package.cpath .. ";./bin/?.so"
+scalu = require("libscalu")
 
-static const struct luaL_Reg lib_scalu[] = {
-	{"Buffer", SCALU_MOD(Buffer)},
-	{NULL, NULL}
-};
-
-extern int SCALU_OPEN(lua_State *L) {
-	luaL_newlibtable(L, lib_scalu);
-	luaL_setfuncs(L, lib_scalu, 0);
-
-	lua_pushliteral(L, "packet");
-	SCALU_MOD(packet)(L);
-	lua_settable(L, -3);
-
-	return 1;
-}
+b = scalu.Buffer(64)
+n = math.random(0, 256)
+b:set8(0, n)
+if b:get8(0) ~= n then
+	error("Buffer I/O failed")
+end
+b:free()

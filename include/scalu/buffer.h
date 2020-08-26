@@ -1,7 +1,10 @@
+#ifndef SCALU_BUFFER_H
+#define SCALU_BUFFER_H
+
 /*
 MIT License
 
-scalu.c
+buffer.h
 Copyright (c) 2020 Nick Trebes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,21 +26,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#include <scalu/buffer.h>
-#include <scalu/packet.h>
+#include <scalu.h>
 
-static const struct luaL_Reg lib_scalu[] = {
-	{"Buffer", SCALU_MOD(Buffer)},
-	{NULL, NULL}
-};
+#define SCALU_TYPE_BUFFER "scalu.Buffer"
 
-extern int SCALU_OPEN(lua_State *L) {
-	luaL_newlibtable(L, lib_scalu);
-	luaL_setfuncs(L, lib_scalu, 0);
+SCALU_API void SCALU_META(,Buffer)(lua_State *L);
+SCALU_API int SCALU_MOD(Buffer)(lua_State *L);
 
-	lua_pushliteral(L, "packet");
-	SCALU_MOD(packet)(L);
-	lua_settable(L, -3);
-
-	return 1;
-}
+#endif /* ! SCALU_BUFFER_H */

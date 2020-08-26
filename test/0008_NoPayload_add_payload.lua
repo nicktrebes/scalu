@@ -1,7 +1,7 @@
 --[[
 MIT License
 
-0001_packet_Packet.lua
+0008_NoPayload_add_payload.lua
 Copyright (c) 2020 Nick Trebes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,4 +26,11 @@ SOFTWARE.
 package.cpath = package.cpath .. ";./bin/?.so"
 scalu = require("libscalu")
 
-pkt = scalu.packet.Packet()
+local function test()
+	p = scalu.NoPayload()
+	p:add_payload(scalu.NoPayload())
+end
+
+if not pcall(test) then
+	error("NoPayload.add_payload is supposed to throw an error")
+end
